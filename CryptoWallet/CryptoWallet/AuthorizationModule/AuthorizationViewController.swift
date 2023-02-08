@@ -24,8 +24,8 @@ class AuthorizationViewController: UIViewController {
     }
 
     private func setUpTargets() {
-            contentView.singInButton.addTarget(self, action: #selector(singInButtonTapped), for: .touchUpInside)
-        }
+        contentView.singInButton.addTarget(self, action: #selector(singInButtonTapped), for: .touchUpInside)
+    }
 
     @objc func singInButtonTapped(_ sender: UIButton!) {
         let login = contentView.userNameTextField.text ?? ""

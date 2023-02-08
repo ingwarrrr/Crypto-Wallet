@@ -27,11 +27,14 @@ class CryptoCoinDetailPresenter: CryptoCoinPresenterProtocol {
     }
 
     public func setCryptoCoin() {
+        let percent1HourChange = cryptoCoin?.data?.marketData?.percentChangeUsdLast1Hour
+        let percent24HourChange = cryptoCoin?.data?.marketData?.percentChangeUsdLast24Hours
+
         let formattedCoin = CryptoCoinDetailViewModel(
             name: cryptoCoin?.data?.name ?? "[Неизвестно]",
             priceUsd: String(format: "%.2f $", cryptoCoin?.data?.marketData?.priceUsd ?? 0),
-            percentChange1Hours: String(format: "%.3f %%", cryptoCoin?.data?.marketData?.percentChangeUsdLast1Hour ?? 0),
-            percentChange24Hours: String(format: "%.3f %%", cryptoCoin?.data?.marketData?.percentChangeUsdLast24Hours ?? 0))
+            percentChange1Hours: String(format: "%.3f %%", percent1HourChange ?? 0),
+            percentChange24Hours: String(format: "%.3f %%", percent24HourChange ?? 0))
 
         self.view?.setCryptoCoin(cryptoCoin: formattedCoin)
     }

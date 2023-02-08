@@ -27,8 +27,8 @@ class CryptoCoinDetailViewController: UIViewController {
 extension CryptoCoinDetailViewController: CryptoCoinDetailViewProtocol {
     func setCryptoCoin(cryptoCoin: CryptoCoinDetailViewModel) {
         contentView.coinNameLabel.text?.append(cryptoCoin.name)
-        contentView.coinPriceLabel.text?.append(cryptoCoin.priceUsd)
-        contentView.coin1HourPercentChangeLabel.text?.append(cryptoCoin.percentChange1Hours)
-        contentView.coin24HoursPercentChangeLabel.text?.append(cryptoCoin.percentChange24Hours)
+        contentView.priceUsdLabel.text?.append(cryptoCoin.priceUsd)
+        contentView.percentChange1HLabel.text?.append(cryptoCoin.percentChange1Hours)
+        contentView.percentChange24HLabel.text?.append(cryptoCoin.percentChange24Hours)
     }
 }

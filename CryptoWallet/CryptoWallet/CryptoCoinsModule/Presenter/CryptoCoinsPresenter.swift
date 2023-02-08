@@ -45,7 +45,8 @@ enum CryptoCoinNames: Int, CaseIterable {
 }
 
 class CryptoCoinsPresenter: CryptoCoinsPresenterProtocol {
-    private var cryptoData: [CryptoCoinModel]? = Array(repeating: CryptoCoinModel(data: nil), count: CryptoCoinNames.allCases.count)
+    private var cryptoData: [CryptoCoinModel]? =
+        Array(repeating: CryptoCoinModel(data: nil), count: CryptoCoinNames.allCases.count)
     var cryptoCoins: [CryptoCoinModel]? {
         didSet {
             view?.updateTable()

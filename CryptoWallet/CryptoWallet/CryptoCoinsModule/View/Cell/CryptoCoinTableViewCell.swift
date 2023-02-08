@@ -11,7 +11,7 @@ import Foundation
 struct CryptoCoinTableViewCellModel {
     let name: String
     let priceUsd: Double
-    let percentChangeUsdLast24Hours: Double
+    let percentChange24Hours: Double
 }
 
 class CryptoCoinTableViewCell: UITableViewCell {
@@ -69,8 +69,8 @@ class CryptoCoinTableViewCell: UITableViewCell {
         self.model = model
 
         self.nameLabel.text = model.name
-        self.percentChangeLabel.text = String(format: "%.3f %%", model.percentChangeUsdLast24Hours)
-        self.percentChangeLabel.textColor = (model.percentChangeUsdLast24Hours < 0) ? UIColor.systemRed : UIColor.systemGreen
+        self.percentChangeLabel.text = String(format: "%.3f %%", model.percentChange24Hours)
+        self.percentChangeLabel.textColor = (model.percentChange24Hours < 0) ? UIColor.systemRed : UIColor.systemGreen
         self.priceUsdLabel.text = String(format: "%.2f $", model.priceUsd)
         self.priceUsdLabel.textColor = (model.priceUsd <= 0) ? UIColor.gray : UIColor.systemGreen
     }

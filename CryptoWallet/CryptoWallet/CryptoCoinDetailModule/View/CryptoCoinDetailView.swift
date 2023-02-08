@@ -10,9 +10,9 @@ import UIKit
 class CryptoCoinDetailView: UIView {
 
     lazy var coinNameLabel = CryptoCoinLabel(labelType: .name)
-    lazy var coinPriceLabel = CryptoCoinLabel(labelType: .priceUsd)
-    lazy var coin1HourPercentChangeLabel = CryptoCoinLabel(labelType: .percentChangeUsdLast1Hours)
-    lazy var coin24HoursPercentChangeLabel = CryptoCoinLabel(labelType: .percentChangeUsdLast24Hours)
+    lazy var priceUsdLabel = CryptoCoinLabel(labelType: .priceUsd)
+    lazy var                 percentChange1HLabel = CryptoCoinLabel(labelType: .percentChangeUsdLast1Hours)
+    lazy var                 percentChange24HLabel = CryptoCoinLabel(labelType: .percentChangeUsdLast24Hours)
 
     init() {
         super.init(frame: .zero)
@@ -26,7 +26,7 @@ class CryptoCoinDetailView: UIView {
     }
 
     private func addSubviews() {
-        [coinNameLabel, coinPriceLabel, coin1HourPercentChangeLabel, coin24HoursPercentChangeLabel]
+        [coinNameLabel, priceUsdLabel, percentChange1HLabel, percentChange24HLabel]
             .forEach {
                 addSubview($0)
                 $0.translatesAutoresizingMaskIntoConstraints = false
@@ -34,28 +34,28 @@ class CryptoCoinDetailView: UIView {
     }
 
     private func setUpConstraints() {
-            NSLayoutConstraint.activate([
-                coinNameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-                coinNameLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -90.0),
-                coinNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20.0),
-                coinNameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20.0),
-                coinNameLabel.heightAnchor.constraint(equalToConstant: 50.0),
+        NSLayoutConstraint.activate([
+            coinNameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            coinNameLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -90.0),
+            coinNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20.0),
+            coinNameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20.0),
+            coinNameLabel.heightAnchor.constraint(equalToConstant: 50.0),
 
-                coinPriceLabel.topAnchor.constraint(equalTo: coinNameLabel.bottomAnchor, constant: 20.0),
-                coinPriceLabel.centerXAnchor.constraint(equalTo: coinNameLabel.centerXAnchor),
-                coinPriceLabel.widthAnchor.constraint(equalTo: coinNameLabel.widthAnchor),
-                coinPriceLabel.heightAnchor.constraint(equalTo: coinNameLabel.heightAnchor),
+            priceUsdLabel.topAnchor.constraint(equalTo: coinNameLabel.bottomAnchor, constant: 20.0),
+            priceUsdLabel.centerXAnchor.constraint(equalTo: coinNameLabel.centerXAnchor),
+            priceUsdLabel.widthAnchor.constraint(equalTo: coinNameLabel.widthAnchor),
+            priceUsdLabel.heightAnchor.constraint(equalTo: coinNameLabel.heightAnchor),
 
-                coin1HourPercentChangeLabel.topAnchor.constraint(equalTo: coinPriceLabel.bottomAnchor, constant: 20.0),
-                coin1HourPercentChangeLabel.centerXAnchor.constraint(equalTo: coinPriceLabel.centerXAnchor),
-                coin1HourPercentChangeLabel.widthAnchor.constraint(equalTo: coinPriceLabel.widthAnchor),
-                coin1HourPercentChangeLabel.heightAnchor.constraint(equalTo: coinPriceLabel.heightAnchor),
+            percentChange1HLabel.topAnchor.constraint(equalTo: priceUsdLabel.bottomAnchor, constant: 20.0),
+            percentChange1HLabel.centerXAnchor.constraint(equalTo: priceUsdLabel.centerXAnchor),
+            percentChange1HLabel.widthAnchor.constraint(equalTo: priceUsdLabel.widthAnchor),
+            percentChange1HLabel.heightAnchor.constraint(equalTo: priceUsdLabel.heightAnchor),
 
-                coin24HoursPercentChangeLabel.topAnchor.constraint(equalTo: coin1HourPercentChangeLabel.bottomAnchor, constant: 15.0),
-                coin24HoursPercentChangeLabel.centerXAnchor.constraint(equalTo: coinNameLabel.centerXAnchor),
-                coin24HoursPercentChangeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20.0),
-                coin24HoursPercentChangeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20.0),
-                coin24HoursPercentChangeLabel.heightAnchor.constraint(equalTo: coinNameLabel.heightAnchor)
-            ])
-        }
+            percentChange24HLabel.topAnchor.constraint(equalTo: percentChange1HLabel.bottomAnchor, constant: 15.0),
+            percentChange24HLabel.centerXAnchor.constraint(equalTo: coinNameLabel.centerXAnchor),
+            percentChange24HLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20.0),
+            percentChange24HLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20.0),
+            percentChange24HLabel.heightAnchor.constraint(equalTo: coinNameLabel.heightAnchor)
+        ])
+    }
 }

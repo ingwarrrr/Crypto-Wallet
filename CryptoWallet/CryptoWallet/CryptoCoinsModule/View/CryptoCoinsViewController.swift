@@ -24,16 +24,17 @@ class CryptoCoinsViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
-        setUpTargets()
+        setupTargets()
     }
 
     func setupUI() {
         self.view.backgroundColor = .systemBackground
+        setupConstraints()
         setupNavigationBar()
         setupTableView()
     }
 
-    private func setUpTargets() {
+    private func setupTargets() {
         contentView.sortButtonDESC.addTarget(self, action: #selector(sortDESC), for: .touchUpInside)
         contentView.sortButtonASC.addTarget(self, action: #selector(sortASC), for: .touchUpInside)
     }
@@ -67,6 +68,25 @@ class CryptoCoinsViewController: UIViewController {
         contentView.cryptoCoinsTableView.register(
             CryptoCoinTableViewCell.self,
             forCellReuseIdentifier: Constants.cryptoCoinCellID)
+    }
+
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            contentView.sortButtonASC.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            contentView.sortButtonASC.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            contentView.sortButtonASC.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.5),
+            contentView.sortButtonASC.heightAnchor.constraint(equalToConstant: 50.0),
+
+            contentView.sortButtonDESC.topAnchor.constraint(equalTo: contentView.sortButtonASC.topAnchor),
+            contentView.sortButtonDESC.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            contentView.sortButtonDESC.widthAnchor.constraint(equalTo: contentView.sortButtonASC.widthAnchor),
+            contentView.sortButtonDESC.heightAnchor.constraint(equalTo: contentView.sortButtonASC.heightAnchor),
+
+            contentView.cryptoCoinsTableView.topAnchor.constraint(equalTo: contentView.sortButtonASC.bottomAnchor),
+            contentView.cryptoCoinsTableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            contentView.cryptoCoinsTableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            contentView.cryptoCoinsTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+        ])
     }
 
     func setupNavigationBar() {
@@ -118,7 +138,7 @@ extension CryptoCoinsViewController: UITableViewDataSource {
         cell.setup(with: CryptoCoinTableViewCellModel(
             name: cryptoCoin?.data?.name ?? "[Неизвестно]",
             priceUsd: cryptoCoin?.data?.marketData?.priceUsd ?? 0,
-            percentChangeUsdLast24Hours: cryptoCoin?.data?.marketData?.percentChangeUsdLast24Hours ?? 0)
+            percentChange24Hours: cryptoCoin?.data?.marketData?.percentChangeUsdLast24Hours ?? 0)
         )
 
         return cell
