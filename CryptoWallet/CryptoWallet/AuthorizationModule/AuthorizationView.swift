@@ -39,18 +39,18 @@ final class AuthorizationView: UIView {
             userNameTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30.0),
             userNameTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30.0),
             userNameTextField.heightAnchor.constraint(equalToConstant: 50.0),
-            
+
             passwordTextField.topAnchor.constraint(equalTo: userNameTextField.bottomAnchor, constant: 20.0),
             passwordTextField.centerXAnchor.constraint(equalTo: userNameTextField.centerXAnchor),
             passwordTextField.widthAnchor.constraint(equalTo: userNameTextField.widthAnchor, multiplier: 1.0),
             passwordTextField.heightAnchor.constraint(equalTo: userNameTextField.heightAnchor),
-            
+
             errorLabel.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 15.0),
             errorLabel.centerXAnchor.constraint(equalTo: userNameTextField.centerXAnchor),
             errorLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20.0),
             errorLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20.0),
             errorLabel.heightAnchor.constraint(equalToConstant: 30.0),
-            
+
             singInButton.topAnchor.constraint(equalTo: errorLabel.bottomAnchor, constant: 15.0),
             singInButton.centerXAnchor.constraint(equalTo: userNameTextField.centerXAnchor),
             singInButton.widthAnchor.constraint(equalToConstant: 200.0),
