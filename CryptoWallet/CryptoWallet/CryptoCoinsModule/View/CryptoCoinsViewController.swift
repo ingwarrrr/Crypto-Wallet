@@ -27,7 +27,7 @@ class CryptoCoinsViewController: UIViewController {
         setupTargets()
     }
 
-    func setupUI() {
+    private func setupUI() {
         self.view.backgroundColor = .systemBackground
         setupConstraints()
         setupNavigationBar()
@@ -53,7 +53,7 @@ class CryptoCoinsViewController: UIViewController {
         presenter.sortCryptoCoinsByDESC()
     }
 
-    func changeSortButtonsUI(sortButtonFirst: UIButton, sortButtonSecond: UIButton) {
+    private func changeSortButtonsUI(sortButtonFirst: UIButton, sortButtonSecond: UIButton) {
         if sortButtonSecond.isEnabled == false {
             sortButtonSecond.isEnabled = true
             sortButtonSecond.backgroundColor = .systemBlue
@@ -62,7 +62,7 @@ class CryptoCoinsViewController: UIViewController {
         sortButtonFirst.backgroundColor = .systemGray
     }
 
-    func setupTableView() {
+    private func setupTableView() {
         contentView.cryptoCoinsTableView.delegate = self
         contentView.cryptoCoinsTableView.dataSource = self
         contentView.cryptoCoinsTableView.register(
@@ -89,7 +89,7 @@ class CryptoCoinsViewController: UIViewController {
         ])
     }
 
-    func setupNavigationBar() {
+    private func setupNavigationBar() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Log out",
             style: .done,

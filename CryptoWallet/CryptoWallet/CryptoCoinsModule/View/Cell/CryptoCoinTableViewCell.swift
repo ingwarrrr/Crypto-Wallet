@@ -75,14 +75,14 @@ class CryptoCoinTableViewCell: UITableViewCell {
         self.priceUsdLabel.textColor = (model.priceUsd <= 0) ? UIColor.gray : UIColor.systemGreen
     }
 
-    func setupUI() {
+    private func setupUI() {
         containerView.addSubview(nameLabel)
         containerView.addSubview(percentChangeLabel)
         self.contentView.addSubview(containerView)
         self.contentView.addSubview(priceUsdLabel)
     }
 
-    func setupConstaints() {
+    private func setupConstaints() {
         NSLayoutConstraint.activate([
             containerView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
             containerView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 15),

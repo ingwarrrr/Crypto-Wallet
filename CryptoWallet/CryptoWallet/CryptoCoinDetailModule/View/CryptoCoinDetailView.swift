@@ -11,8 +11,8 @@ class CryptoCoinDetailView: UIView {
 
     lazy var coinNameLabel = CryptoCoinLabel(labelType: .name)
     lazy var priceUsdLabel = CryptoCoinLabel(labelType: .priceUsd)
-    lazy var                 percentChange1HLabel = CryptoCoinLabel(labelType: .percentChangeUsdLast1Hours)
-    lazy var                 percentChange24HLabel = CryptoCoinLabel(labelType: .percentChangeUsdLast24Hours)
+    lazy var percentChange1HLabel = CryptoCoinLabel(labelType: .percentChangeUsdLast1Hours)
+    lazy var percentChange24HLabel = CryptoCoinLabel(labelType: .percentChangeUsdLast24Hours)
 
     init() {
         super.init(frame: .zero)
