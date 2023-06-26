@@ -1,1 +1,1 @@
-# Crypto-Wallet-Test-app
+# Crypto-Wallet-app
